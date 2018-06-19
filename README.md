@@ -70,7 +70,7 @@
 ## Bad Things 😓
 
 * I wrapped the response with `{meta: {}, data: {HERE}}`. In real world we should not break the API unless we agreed on this. I did it this time to allow you to have a look to my framework.
-* I used the minimal parts of a framework that I built from more than 3 years. Some parts of the code need a revamp since they have a really bad implementation, consistency, naming, documentation like `router.js`, `response.js`, `tasks.js`, `helpers/validate.js`, etc.
+* I used the minimal parts of a framework that I built from more than 3 years. Some parts of the code need a revamp since they have a really bad implementation, consistency, naming, documentation like `router.js`, `response.js`, `tasks.js`, `helpers/validate.js`, most of the middlewares, helpers, misc modules, etc.
 
 # Getting Started
 
