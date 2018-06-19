@@ -1,3 +1,18 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependency directories
 node_modules
-angularjs-frontend/.tmp
-.idea
+
+# Optional npm cache directory
+.npm
+
+# Dev
+.project
+-angularjs-frontend/.tmp
+-.idea
+
+# PM2
+.pm2
