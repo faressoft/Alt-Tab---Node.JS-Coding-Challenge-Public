@@ -2,9 +2,38 @@
 
 let assert = require('chai').assert;
 let request = require('supertest-as-promised');
-
-let app = require('../../app');
 let _user = 'integration_test_' + Math.floor(Date.now() / 1000) + '@alttab.co';
+let app = null;
+
+// Wait for the system to load
+before(function(done) {
+
+  // Disable the logging
+  var log = console.log;
+  console.log = new Function();
+
+  // Load the app and wait until it finish
+  require('./../../app').then(function(server) {
+
+    app = server;
+
+    // Enable the logging again
+    console.log = log;
+
+    // Move to the next step
+    done();
+    
+  });
+
+});
+
+// When all tests are executed, cleanup
+after(function() {
+
+  // di.database.close();
+  app.close();
+  
+});
 
 describe('Authentication Controller', () => {
 
@@ -20,7 +49,7 @@ describe('Authentication Controller', () => {
       })
       .expect(201)
       .then((data) => {
-        _token = data.body.token;
+        _token = data.body.data.token;
         assert.ok(_token);
       });
   });
@@ -35,7 +64,7 @@ describe('Authentication Controller', () => {
       })
       .expect(200)
       .then((data) => {
-        _token = data.body.token;
+        _token = data.body.data.token;
         assert.ok(_token);
       });
   });
@@ -84,7 +113,7 @@ describe('Profile controller', () => {
         password: 'integration'
       })
       .then((data) => {
-        _token = data.body.token;
+        _token = data.body.data.token;
         assert.ok(_token);
       });
   });
@@ -95,7 +124,7 @@ describe('Profile controller', () => {
       .set('Authorization', 'Bearer ' + _token)
       .expect(200)
       .then((data) => {
-        assert.equal(data.body.email, _user);
+        assert.equal(data.body.data.email, _user);
       });
   });
 
