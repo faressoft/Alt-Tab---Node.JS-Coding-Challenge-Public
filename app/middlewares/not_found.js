@@ -11,14 +11,8 @@
  */
 module.exports = function(req, res, next) {
 
-  // Response wrapper
-  res = new di.Response(res);
-
-  // Failed status
-  res.setStatus(false);
-
   // Send not found message
-  res.error('Not Found', {}, 404);
+  res.status(404).send('Not Found !');
 
   next();
 

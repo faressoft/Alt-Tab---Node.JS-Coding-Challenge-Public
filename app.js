@@ -99,6 +99,7 @@ di.set('lodash', lodash);
 di.set('routePattern', RoutePattern.fromString);
 di.set('deepcopy', deepcopy);
 di.set('Response', Response);
+di.set('express', express);
 di.set('q', q);
 
 // Load and cache the configurations
@@ -138,7 +139,9 @@ router.middleware.before([
   'body_parser',
   'body_json_parser',
   'slashes',
-  'response_time'
+  'response_time',
+  'static_contents',
+  'serve_client_side_app'
 ]);
 
 // Before executing the controller (the controller is known)
