@@ -1,0 +1,8 @@
+{
+  "SOMETHING_WRONG": "Something went wrong, try again later",
+  "SERIVCE_NOT_FOUND": "The required service is not found",
+  "ENTER_REQUIED": "Please enter valid values for the required fields",
+  "EMAIL_EXISTS": "The email is already exists",
+  "WRONG_AUTH": "The entered email or the password is wrong",
+  "UNAUTH": "You are not authorized to access this service, you should provide a valid access_token"
+}
